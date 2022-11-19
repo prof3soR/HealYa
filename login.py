@@ -48,7 +48,7 @@ def login():
     else:
         if pas==valid[0][-1]:
             st.write("You have successfully logged in !")
-            st.write("[Click here to continue](http://18.181.181.113:8501/)")
+            st.write("[Click here to continue](http://18.182.45.223:8501/)")
             
 
             
