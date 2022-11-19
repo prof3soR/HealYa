@@ -65,7 +65,7 @@ with col2:
 
 mydb.close()
 
-url = https://www.github.com
+url = 'http://18.181.181.113:8501/'
 st.write("click here to login [link](url)")
 
 
