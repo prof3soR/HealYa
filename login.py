@@ -2,7 +2,7 @@ import streamlit as st
 from PIL import Image
 img = Image.open('mind.png')
 st.set_page_config(
-    page_title="HealYa",
+    page_title="HealYa login page",
     page_icon=img
     )
 hide_st_style = """
