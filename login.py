@@ -44,9 +44,12 @@ def login():
     
     if len(valid)==0:
         st.write("Invalid login")
+    
     else:
         if pas==valid[0][-1]:
-            st.write("Success!")
+            st.write("You have successfully logged in !")
+            st.write("[Click here to continue](http://18.181.181.113:8501/)")
+            
 
             
         else:
