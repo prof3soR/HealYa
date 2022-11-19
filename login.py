@@ -63,4 +63,4 @@ with col1:
 with col2:
     st.image("login-page.jpeg")
 
-    
+st.write("Click here to sign up!! (http://35.78.98.95:8501/)")
