@@ -1,11 +1,47 @@
 import streamlit as st
-st.title("Welcome To HealYa")
+from PIL import Image
+img = Image.open('mind.png')
+st.set_page_config(
+    page_title="HealYa",
+    page_icon=img
+    )
+hide_st_style = """
+            <style>
+            MainMenu {visibility: hidden;}
+            footer {visibility: hidden;}
+            header {visibility: hidden;}
+            </style>
+            """
+st.markdown(hide_st_style, unsafe_allow_html=True)
+st.markdown(
+         f"""
+         <style>
+         .stApp {{
+             background-image: url("https://weareluminate.co/wp-content/uploads/2022/05/Blank-1250-x-800.png");
+             background-attachment: fixed;
+             background-size: cover
+         }}
+         </style>
+         """,
+         unsafe_allow_html=True
+     )
+
+
+col1, col2 = st.columns([1,4])
+
+with col1:
+    st.image('mind.png',width=100)
+
+with col2:
+    st.title("Thank you for joining HealYa",anchor=None)
+
+
 st.write("This is HealYa's confession page")
 st.write("This is a safe and secure place for to take a mental heath status test and talk about it and help us help you get the best mental health care you deserve!")
 st.subheader("Take the test below to know you mental health status")
 st.write("Please answer the question keeping past two weeks of activity of your life to patiently answer the qustions so that we can give you a better assesment")
 st.write("On scale of 1 to 5 please select what you felt based on the question...")
-Q1= st.radio("Being so restless that it is hard to sit still",(1,2,3,4,5),horizontal=True,index=0)
+Q1= st.radio("Being so restless that it is hard to sit still",(1,2,3,4,5),horizontal=True)
 Q2= st.radio("Becoming easily annoyed or irritable",(1,2,3,4,5),horizontal=True)
 Q3= st.radio("Feeling bad about yourself - or that you are a failure or have let yourself or your family down",(1,2,3,4,5),horizontal=True)
 Q4= st.radio("Thoughts that you would be better off dead, or of hurting yourself and Little interest or pleasure in doing things ",(1,2,3,4,5),horizontal=True)
@@ -15,8 +51,7 @@ Q7= st.radio("Tried hard not to think about the event(s) or went out of your way
 Q8= st.radio("Felt numb or detached from people, activities, or your surroundings?",(1,2,3,4,5),horizontal=True)
 Q9= st.radio("Can't stop overthinking and ruining even good things happening",(1,2,3,4,5),horizontal=True)
 Q10= st.radio("Others don't believe me when I tell them the things I see or hear",(1,2,3,4,5),horizontal=True)
-
-        
+            
 
 def get_score(x):
     if x<=10:
@@ -32,12 +67,12 @@ def get_score(x):
 
 score=0
 score=Q1+Q2+Q3+Q4+Q5+Q6+Q7+Q8+Q9+Q10
-    
+        
 if st.button("Get score",type="primary"):
     get_score(score)
-
+ 
 sym=[]
-st.subheader("Now you know you state of mental health now take a moment and pick your symptoms and check the box's which are revelant to you ")
+st.subheader("If you're struggling with mental health, we've got you covered.Now that you know your state of mental health, take a moment and pick your symptoms and check the boxes that are relevant to you. ")
 s1=st.checkbox("Feeling sad or down")
 s2=st.checkbox("Confused thinking or reduced ability to concentrate")
 s3=st.checkbox("Excessive fears or worries")
@@ -62,14 +97,16 @@ if s6:
     
 sym=','.join(sym)
 
-st.subheader("We really appreciate you for your effort's you are just one step away from getting the help you need right now, so we enchorage you to gather a little more courage and tell us what's really bothering you and so do not forget that you need not reveal anything about yourself it's completely anonymous which is why we want you to open up and tell us so we help you..")
-
-confession=st.text_input("Confession box",placeholder="You can confess your feeling here (completely anonymous)",max_chars=200)
+st.text("We want you to know that we care about you and your well-being, and we want to help you get through whatever is bothering you right now. If there's anything we can do, just let us know.")
+st.text("You don't have to tell us what's wrong; we just need to know how much it's affecting your life and how much of an impact it has on your moods.")
+st.text("You can tell us anything about yourself or any personal life at all, and we will not reveal anything about you.We want to help!")
+confession=st.text_area("Confession box",placeholder="You can confess your feeling here (completely anonymous)",height=1)
 
 
 #score
 #sym
 #confession
+
 def insert():
     import mysql.connector
     from datetime import datetime
