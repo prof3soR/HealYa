@@ -2,7 +2,7 @@ import streamlit as st
 from PIL import Image
 img = Image.open('mind.png')
 st.set_page_config(
-    page_title="HealYa",
+    page_title="HealYa Signup page",
     page_icon=img
     )
 hide_st_style = """
@@ -64,6 +64,7 @@ with col2:
     st.image("sp.jpeg")
 
 mydb.close()
-    
+
+st.subheader("Click here to login !", anchor=http://18.181.181.113:8501/)
 
 
